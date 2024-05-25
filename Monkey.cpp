@@ -7,8 +7,6 @@ using namespace std;
 int main() {
     string line;
     while (getline(cin, line)) {
-        line.erase(line.find_last_not_of(" ") + 1);
-
         string result = "";
         for (char ch : line) {
             if (ch != ' ') {
