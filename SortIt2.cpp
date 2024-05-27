@@ -1,10 +1,8 @@
-#include <iostream>
-#include <algorithm>
+#include<bits/stdc++.h>
 using namespace std;
 
-int* sort_it(int& n) {
-    cin >> n;
-    int* arr = new int[n]; 
+int * sort_it(int n) {
+    int *arr = new int[n]; 
     for(int i = 0; i < n; ++i) {
         cin >> arr[i];
     }
@@ -13,9 +11,10 @@ int* sort_it(int& n) {
 }
 
 int main() {
-    int n;
-    int* sorted_arr = sort_it(n);
-    for(int i = 0; i < n; ++i) {
+    int a;
+    cin >> a;
+    int *sorted_arr = sort_it(a);
+    for(int i = 0; i < a; ++i) {
         cout << sorted_arr[i] << " ";
     }
     return 0;

@@ -1,41 +1,36 @@
-#include<bits/stdc++.h>
+#include <iostream>
 
 using namespace std;
 
 class Student {
 public:
-    int id;
-    string name;
+    char ID;
+    char name[101];
     char section;
     int totalMarks;
-    Student(int id, string name, char section, int totalMarks) {
-        this->id = id;
-        this->name = name;
-        this->section = section;
-        this->totalMarks = totalMarks;
-    }
 };
-bool compareStudents(const Student& a, const Student& b) {
-    if (a.totalMarks != b.totalMarks)
-        return a.totalMarks > b.totalMarks;
-    return a.id < b.id;
-}
 
 int main() {
     int T;
     cin >> T;
 
     while (T--) {
-        vector<Student> students;
-        for (int i = 0; i < 3; ++i) {
-            int id, totalMarks;
-            string name;
-            char section;
-            cin >> id >> name >> section >> totalMarks;
-            students.push_back(Student(id, name, section, totalMarks));
+        Student A, B, C;
+        cin >> A.ID >> A.name >> A.section >> A.totalMarks;
+        cin >> B.ID >> B.name >> B.section >> B.totalMarks;
+        cin >> C.ID >> C.name >> C.section >> C.totalMarks;
+
+        Student highestScorer = A;
+
+        if (B.totalMarks > highestScorer.totalMarks || (B.totalMarks == highestScorer.totalMarks && B.ID < highestScorer.ID)) {
+            highestScorer = B;
         }
-        sort(students.begin(), students.end(), compareStudents);
-        cout << students[0].id << " " << students[0].name << " " << students[0].section << " " << students[0].totalMarks << endl;
+
+        if (C.totalMarks > highestScorer.totalMarks || (C.totalMarks == highestScorer.totalMarks && C.ID < highestScorer.ID)) {
+            highestScorer = C;
+        }
+
+        cout << highestScorer.ID << " " << highestScorer.name << " " << highestScorer.section << " " << highestScorer.totalMarks << endl;
     }
 
     return 0;

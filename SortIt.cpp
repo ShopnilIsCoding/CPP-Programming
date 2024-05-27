@@ -1,24 +1,24 @@
-#include <bits/stdc++.h>
-
+#include<bits/stdc++.h>
 using namespace std;
 
 int main() {
     int N;
     cin >> N;
     
-    vector<int> A(N);
+    int A[N];
     for(int i = 0; i < N; ++i) {
         cin >> A[i];
     }
     
-    sort(A.begin(), A.end());
+    sort(A, A + N);
     for(int i = 0; i < N; ++i) {
-        cout << A[i] << (i == N-1 ? "\n" : " ");
+        cout << A[i] << " ";
     }
+    cout<<"\n";
     
-    sort(A.begin(), A.end(), greater<int>());
+    sort(A, A + N, greater<int>());
     for(int i = 0; i < N; ++i) {
-        cout << A[i] << (i == N-1 ? "\n" : " ");
+        cout << A[i] << " ";
     }
     
     return 0;
