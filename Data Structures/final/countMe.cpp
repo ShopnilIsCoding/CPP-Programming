@@ -1,36 +1,33 @@
-#include <iostream>
-#include <sstream>
-#include <unordered_map>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    int T;
-    cin >> T;
-    cin.ignore(); 
-
-    while (T--) {
-        string S;
-        getline(cin, S); 
-
-        unordered_map<string, int> wordCount;
-        stringstream ss(S);
+int main()
+{
+    int n;
+    cin>>n;
+    cin.ignore();
+    while(n--)
+        {
+        string sen;
+        getline(cin,sen);
+        map<string,int>wMap;
+        stringstream ss(sen);
         string word;
-        string maxWord;
-        int maxCount = 0;
+        int pos=0;
+        int maxCount=0;
+        string mostFrequentWord;
 
-        while (ss >> word) {
-            wordCount[word]++;
-
-            if (wordCount[word] > maxCount || 
-               (wordCount[word] == maxCount && (maxWord.empty() || wordCount[maxWord] < wordCount[word]))) {
-                maxWord = word;
-                maxCount = wordCount[word];
+        while(ss>>word)
+            {
+            pos++;
+            wMap[word]++;
+            if(wMap[word]>maxCount || (wMap[word]==maxCount && wMap[word]<wMap[mostFrequentWord]))
+            {
+                maxCount=wMap[word];
+                mostFrequentWord=word;
             }
         }
-
-        cout << maxWord << " " << maxCount << endl;
+        cout<<mostFrequentWord<<" "<<maxCount<<endl;
     }
-
     return 0;
 }
